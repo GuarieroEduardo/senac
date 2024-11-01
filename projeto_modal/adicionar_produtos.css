@@ -2,9 +2,8 @@ dialog {
     border: none;
     border-radius: 10px;
     padding: 20px;
-    background-color: #4b1a5d; /* Fundo roxo escuro */
+    background-color: rgb(44, 0, 106); 
     width: 600px;
-    max-width: 90%;
     color: #FFFFFF;
 }
 
@@ -16,8 +15,7 @@ dialog {
 header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-    background-color: red;
+    margin-bottom: 10px;
     padding: 10px;
 }
 
@@ -25,15 +23,21 @@ header .buttonClose {
     background-color: transparent;
     border: none;
     font-size: 16px;
+    color: #FFFFFF;
     cursor: pointer;
+    
 }
 
 header .buttonConcluir {
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
-    padding: 5px 10px;
-    margin-right: 5px;
+    width: 160px;
+    height: 32px;
+    margin-right: 20px;
+    background-color: rgb(211, 74, 244);
+    color: #FFFFFF;
     cursor: pointer;
+    
 }
 
 #produtoForm {
@@ -67,10 +71,21 @@ form .LadoEsquerdo, form .LadoDireito {
     margin-bottom: 5px;
 }
 
-.LadoEsquerdo .error {
+input[type="checkbox"] {
+    accent-color: rgb(252, 103, 29); 
+}
+
+
+.LadoEsquerdo .alerta {
     color: red;
     font-size: 14px;
+    visibility: hidden;
 }
+
+.LadoEsquerdo .alerta .error {
+    visibility: visible;
+}
+
 
 .UploadBox {
     display: flex;
