@@ -11,25 +11,33 @@
     <dialog>
         <div class="ModalContainer">
             <header>
-                <button class="buttonClose">X</button>
-                <button class="buttonConcluir">Concluído</button>
+                <div class="headerLogo">
+                    
+                </div>
+                <div class="headerBotoes">
+                    <button type="submit" form="produtoForm" class="buttonConcluir">Concluído</button>
+                    <button type="button" class="buttonClose">X</button>
+                </div>
             </header>
-            <form>
+            <form id="produtoForm">
                 <div class="LadoEsquerdo">
                     <div class="FormProduto">
-                        <label for="produto">Nome do Produto:</label>
+                        <label for="Produto">Nome do Produto:</label>
                         <input type="text" id="Produto" placeholder="Produto">
+                        <small class="error">Mensagem de erro</small>
                     </div>
                     <div class="FormQuantidade">
-                        <label for="quantidade">Quantidade:</label>
+                        <label for="Quantidade">Quantidade:</label>
                         <input type="number" id="Quantidade" placeholder="Quantidade">
+                        <small class="error">Mensagem de erro</small>
                     </div>
                     <div class="FormPreco">
-                        <label for="preco">Preço:</label>
-                        <input type="text" id="preco" placeholder="R$ 99,99">
+                        <label for="Preco">Preço:</label>
+                        <input type="text" id="Preco" placeholder="R$ 99,99">
+                        <small class="error">Mensagem de erro</small>
                     </div>
                     <div class="FormTipo">
-                        <label>Tipo:</label>
+                        <div><label>Tipo:</label></div>
                         <input type="checkbox" id="Campanha">
                         <label for="Campanha">Campanha</label>
                         <input type="checkbox" id="Fisico">
@@ -40,7 +48,8 @@
                 </div>
                 <div class="LadoDireito">
                     <div class="FormImagem">
-                        <label for="imagem">Faça o upload da imagem do produto:</label>
+                        <label>Faça o upload da imagem do produto:</label>
+                        <label for="imagem" class="UploadBox">click</label>
                         <input type="file" id="imagem" accept="image/jpeg, image/png, image/gif">
                     </div>
                 </div>
