@@ -14,8 +14,7 @@
                 <div class="headerLogo">
                     <img src="/projeto_modal/logo (1) 2.png" alt="LOGO">
                 </div>
-                <div class="headerBotoes">
-                    <button type="submit" form="produtoForm" class="buttonConcluir">Concluído</button>
+                <div class="headerBotao">
                     <button type="button" class="buttonClose">X</button>
                 </div>
             </header>
@@ -49,8 +48,15 @@
                 <div class="LadoDireito">
                     <div class="FormImagem">
                         <label>Faça o upload da imagem do produto:</label>
-                        <label for="imagem" class="UploadBox">click</label>
+                        <label for="imagem" class="UploadBox">
+                            <img src="./uploadIcon.png" alt="uploadIcon">
+                            <p>Arraste e solte o arquivo de imagem aqui para realizar upload</p>
+                            <small>JPEG - PNG - WEBP</small>
+                        </label>
                         <input type="file" id="imagem" accept="image/jpeg, image/png, image/gif">
+                        <div class="produtoFormBotao">
+                            <button type="submit" form="produtoForm" class="buttonConcluir">Concluído</button>
+                        </div>
                     </div>
                 </div>
             </form>
