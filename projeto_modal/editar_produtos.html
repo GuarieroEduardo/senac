@@ -38,9 +38,14 @@
                         <small class="alerta">Mensagem de erro</small>
                     </div>
                     <div class="FormTipo">
-                        <div><label>Tipo:</label></div>
-                        <input type="checkbox" id="Campanha">
-                        <label for="Campanha">Campanha</label>
+                        <div><label>Selecione "tipo" da Campanha:</label></div>
+                        <input type="text" id="Campanha" list="ListCampanha">
+                        <datalist id="ListCampanha">
+                            <option value="natal"></option>
+                            <option value="pascoa"></option>
+                            <option value="dias dos pais"></option>
+                            <option value="dias das maes"></option>
+                        </datalist>     
                         <input type="checkbox" id="Fisico">
                         <label for="Fisico">Fisico</label>
                         <input type="checkbox" id="Virtual">
@@ -57,13 +62,14 @@
                         </label>
                         <input type="file" id="imagem" accept="image/jpeg, image/png, image/gif">
                         <div class="produtoFormBotao">
-                            <button type="submit" form="produtoForm" class="buttonConcluir">Alterar</button>
+                            <button type="submit" form="produtoForm" class="buttonAlterar">Alterar</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </dialog>
+
     <script src="editar_produtos.js"></script>
 </body>
 </html>

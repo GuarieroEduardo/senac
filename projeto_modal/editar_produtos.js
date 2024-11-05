@@ -4,8 +4,12 @@ const buttonClose = document.querySelector(".buttonClose")
 
 buttonOpen.addEventListener("click", function() {
     modal.showModal();
+
 });
 
 buttonClose.addEventListener("click", function() {
     modal.close();
 });
+
+
+

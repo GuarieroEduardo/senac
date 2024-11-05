@@ -1,3 +1,4 @@
+
 dialog {
     border: none;
     border-radius: 15px;
@@ -96,7 +97,7 @@ input[type="checkbox"] {
     text-align: end;
 }
 
-.buttonConcluir {
+.buttonAlterar {
     border-radius: 10px;
     border: none;
     width: 250px;
@@ -107,7 +108,7 @@ input[type="checkbox"] {
     cursor: pointer;   
 }
 
-.buttonConcluir:hover {
+.buttonAlterar:hover {
     background-color: rgba(210, 74, 244, 0.8);
 }
 
@@ -150,41 +151,7 @@ input[type="file"] {
     font-size: 16px;
 }
 
-@media (max-width: 790px) {
-    dialog {
-        width: 100%;
-        max-width: 400px;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-    
-    #produtoForm {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 10px;
-    }
-    
-    form .LadoEsquerdo, form .LadoDireito {
-        width: 100%;
-        padding: 0;
-        margin: 0; 
-    }
 
-    header .headerLogo img {
-        width: 70px;
-    }
 
-    header {
-        padding: 5px 10px;
-    }
 
-    .buttonConcluir {
-        width: 100%;
-        margin-top: 20px;
-    }
 
-    .UploadBox {
-        height: 150px;
-        font-size: 14px;
-    }
-}
