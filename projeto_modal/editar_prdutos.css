@@ -151,7 +151,14 @@ input[type="file"] {
     font-size: 16px;
 }
 
+#Campanha{
+    width: 250px;
+    height: 23px;
+    font-size: 16px;
+    
+}
 
-
-
+.FormTipoOpçoes{
+    display: flex;
+}
 
