@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Produto</title>
-    <link rel="stylesheet" href="adicionar_produtos.css">
+    <link rel="stylesheet" href="./editar_produtos.css">
 </head>
 <body>
+    <!-- Botão teste-->
     <button class="buttonOpen">Adicionar Produto</button>
-    <dialog>
+    
+    <!-- Primeiro Popup: Formulário de Adição de Produto -->
+    <dialog id="popupEditarProduto">
         <div class="ModalContainer">
             <header>
                 <div class="headerLogo">
@@ -16,7 +19,7 @@
                 </div>
                 <div class="headerBotao">
                     <button type="button" class="buttonClose">    
-                        <img src="./botaoClose.png" alt="botãoClose" class="buttonClose">
+                        <img src="./buttonClose.png" alt="botãoClose">
                     </button>
                 </div>
             </header>
@@ -42,7 +45,7 @@
                         <input type="checkbox" id="Campanha">
                         <label for="Campanha">Campanha</label>
                         <input type="checkbox" id="Fisico">
-                        <label for="Fisico">Fisico</label>
+                        <label for="Fisico">Físico</label>
                         <input type="checkbox" id="Virtual">
                         <label for="Virtual">Virtual</label>
                     </div>
@@ -57,13 +60,35 @@
                         </label>
                         <input type="file" id="imagem" accept="image/jpeg, image/png, image/gif">
                         <div class="produtoFormBotao">
-                            <button href="./popUp_Adicional.html" type="submit" form="produtoForm" class="buttonConcluir">Concluído</button>
+                            <!-- Botão Concluir redireciona para o segundo pop up -->
+                            <button type="button" class="buttonConcluir">Concluir</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </dialog>
-    <script src="adicionar_produtos.js"></script>
+
+    <!-- Segundo Popup: continuação do conteudo "sobra" do primeiro pop up-->
+    <dialog id="popupConcluir">
+        <div class="ModalContainer">
+            <header>
+                <div class="headerLogo">
+                    <img src="./logo (1) 2.png" alt="LOGO">
+                </div>
+                <div class="headerBotao">
+                    <button type="button" class="buttonClose2">    
+                        <img src="./buttonClose.png" alt="botãoClose">
+                    </button>
+                </div>
+            </header>
+            <h2>Produto Adicionado com Sucesso!</h2>
+            <!-- Botão para fechar o segundo popup -->
+            
+        </div>
+    </dialog>
+
+    <!-- JavaScript para controlar os popups -->
+    <script src="./editar_produtos.js"></script>
 </body>
 </html>
