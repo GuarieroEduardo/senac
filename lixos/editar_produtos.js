@@ -20,8 +20,13 @@ buttonClose.addEventListener("click", function() {
 
 // Abrir o segundo popup ao clicar em "Concluir"
 buttonConcluir.addEventListener("click", function() {
-    modalPrimeiro.close(); // Fecha o primeiro popup
-    modalSegundo.showModal(); // Abre o segundo popup
+    const botaoCampanha = document.getElementById("Campanha")
+
+    if (botaoCampanha.checked) {
+        modalSegundo.showModal(); // Abre o segundo popup
+    } else {
+       
+    }
 });
 
 // Fechar o segundo popup

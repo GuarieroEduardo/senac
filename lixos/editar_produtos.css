@@ -85,8 +85,8 @@ form .LadoEsquerdo, form .LadoDireito {
 input[type="checkbox"] {
     accent-color: rgb(252, 103, 29); 
     margin-left: 15px;
-    height: 15px;
-    width: 15px;
+    height: 16px;
+    width: 16px;
     cursor: pointer;
 }
 
@@ -111,7 +111,7 @@ input[type="checkbox"] {
     background-color: rgba(210, 74, 244, 0.8);
 }
 
-.LadoEsquerdo .alerta {
+.LadoEsquerdo .alerta { 
     color: red;
     font-size: 16px;
     visibility: hidden;
@@ -120,6 +120,9 @@ input[type="checkbox"] {
 .LadoEsquerdo .alerta .error {
     visibility: visible;
 }
+
+
+
 
 .UploadBox {
     display: flex;
@@ -168,7 +171,7 @@ input[type="file"] {
 
 .temaCampanhaHeard > div > p {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 25px;
     
 }
 
@@ -178,7 +181,6 @@ input[type="file"] {
 }
 
 .temaCampanhaCorpo{
-
     display: flex;
     height: 300px;
     flex-direction: column;
@@ -190,26 +192,34 @@ input[type="file"] {
 
 .temaCampanhaCorpo > div {
     margin-bottom: 25px;
-    font-size: 18px;
     display: flex;
     align-items: center;
 }
 
-.temaCampanhaCorpo  input[type="checkbox"]{
+.temaCampanhaCorpo > div > label{
+    font-size: 20px;
+}
 
-    margin-right: 5px;
+.temaCampanhaCorpo  input[type="checkbox"]{
+    margin-right: 10px;
+    height: 23px;
+    width: 23px;
+}
+
+.temaCampanhaCorpo input[type="text"]{
     height: 20px;
-    width: 18px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 200px;
 }
 
 .rodaPe{
-
     width: 100%;
-    margin-top: px;
     display: flex;
-    justify-content: end ;
+    justify-content: end;
 }
 
 .buttonrodaPe{
-    margin-top: 58px;
+    margin-top: 24px;
 }
