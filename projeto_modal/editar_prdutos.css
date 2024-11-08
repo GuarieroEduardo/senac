@@ -162,3 +162,8 @@ input[type="file"] {
     display: flex;
 }
 
+.temaCampanha{
+    display: flex;
+    width: 100%;
+    background-color: #666;
+}

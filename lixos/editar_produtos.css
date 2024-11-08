@@ -33,7 +33,7 @@ header .buttonClose, header .buttonClose2 {
     cursor: pointer;
 }
 
-#produtoForm {
+#produtoForm, #produtoForm2 {
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -96,7 +96,7 @@ input[type="checkbox"] {
     text-align: end;
 }
 
-.buttonConcluir {
+.buttonConcluir, .buttonrodaPe {
     border-radius: 10px;
     border: none;
     width: 250px;
@@ -107,7 +107,7 @@ input[type="checkbox"] {
     cursor: pointer;   
 }
 
-.buttonConcluir:hover {
+.buttonConcluir:hover, .buttonrodaPe:hover {
     background-color: rgba(210, 74, 244, 0.8);
 }
 
@@ -148,4 +148,68 @@ input[type="file"] {
 #Produto, #Quantidade, #Preco {
     padding-left: 10px; 
     font-size: 16px;
+}
+
+.temaCampanhaHeard{
+    display: flex;
+    width: 100%;
+
+}
+.imagemTemanhaCampanha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagemTemanhaCampanha > img {
+    height: 20px;
+    
+}
+
+.temaCampanhaHeard > div > p {
+    margin-left: 10px;
+    font-size: 20px;
+    
+}
+
+#produtoForm2{
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+.temaCampanhaCorpo{
+
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -30px;
+    
+
+}
+
+.temaCampanhaCorpo > div {
+    margin-bottom: 25px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.temaCampanhaCorpo  input[type="checkbox"]{
+
+    margin-right: 5px;
+    height: 20px;
+    width: 18px;
+}
+
+.rodaPe{
+
+    width: 100%;
+    margin-top: px;
+    display: flex;
+    justify-content: end ;
+}
+
+.buttonrodaPe{
+    margin-top: 58px;
 }
