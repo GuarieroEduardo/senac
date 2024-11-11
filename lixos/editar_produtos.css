@@ -85,7 +85,6 @@ form .LadoEsquerdo, form .LadoDireito {
 
 input[type="checkbox"] {
     accent-color: rgb(252, 103, 29); 
-    margin-left: 15px;
     height: 16px;
     width: 16px;
     cursor: pointer;
@@ -225,3 +224,96 @@ input[type="file"] {
 .buttonrodaPe{
     margin-top: 24px;
 }
+
+
+
+
+
+
+
+
+
+/* Para telas menores que 900px (ajustar conteúdo dentro do dialog de forma proporcional) */
+@media (max-width: 900px) {
+    dialog{
+        height: 540px;
+    }
+
+    form .LadoEsquerdo, form .LadoDireito{
+        height: 200px;
+        margin: 0;
+    }
+
+    /* Diminuindo o tamanho das fontes para os labels e textos */
+    .FormProduto > label, 
+    .FormQuantidade > label, 
+    .FormPreco > label, 
+    .FormTipo > label,
+    .temaCampanhaHeard > div > p {
+        font-size: 17px;  /* Reduzindo levemente o tamanho da fonte */
+    }
+
+    .FormImagem > label{
+        font-size: 18px;
+    }
+
+    .FormTipo{
+        margin: 0;
+    }
+
+     #Virtual{
+        margin-left: 8px;
+    }
+
+    /* Ajuste de fonte nos inputs */
+    .FormProduto > input, 
+    .FormQuantidade > input, 
+    .FormPreco > input{
+        font-size: 14px; /* Fonte menor para inputs */
+        padding: 8px;    /* Ajuste no padding para não exagerar */
+        height: 25px;
+    }
+    
+    
+
+    /* Ajustando o tamanho das checkboxes */
+    input[type="checkbox"] {
+        margin-left: 0;
+        height: 14px;
+        width: 14px;
+    }
+    .temaCampanhaCorpo  input[type="checkbox"]{
+        margin-right: 10px;
+        height: 18px;
+        width: 18px;
+    }
+
+    .buttonConcluir, .buttonrodaPe {
+        font-size: 18px;  /* Reduzindo o tamanho do texto */
+        width: 220px;     /* Ajustando a largura do botão */
+        height: 50px;     /* Mantendo a altura proporcional */
+    }
+
+    /* Ajustando o tamanho da UploadBox e imagem */
+    .UploadBox {
+        height: 250px; /* Menor, mas ainda com bom espaço */
+    }
+
+    .UploadBox img {
+        width: 50px;  /* Tornando a imagem menor */
+    }
+
+    /* Ajustando o texto dentro das boxes de campanha */
+    .temaCampanhaCorpo > div > label {
+        font-size: 16px; /* Fonte menor */
+    }
+
+    /* Ajustando o texto no header */
+    .headerLogo > img {
+        width: 150px;  /* Logo um pouco menor */
+    }
+    .buttonrodaPe{
+        margin-top: 18px;
+    }
+}
+
