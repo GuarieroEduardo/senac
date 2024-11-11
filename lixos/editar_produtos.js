@@ -12,6 +12,12 @@ const quantidade = document.getElementById("Quantidade");
 const preco = document.getElementById("Preco");
 const campanhaCheckbox = document.getElementById("Campanha");
 
+// inputs do segundo pop Up
+const checkboxOption = document.getElementById('checkboxOption');
+const checkboxlist = document.getElementById('checkboxlist');
+// Seleciona todos os checkboxes dentro do segundo popup (popupConcluir)
+const checkboxes = modalSegundo.querySelectorAll("input[type='checkbox']");
+
 // Função para exibir erros
 function ShowError(input, mensagem) {
     const formControl = input.parentElement;
@@ -77,3 +83,37 @@ buttonConcluir.addEventListener("click", function() {
 buttonClose2.addEventListener("click", function() {
     modalSegundo.close();
 });
+
+// Adiciona um evento que verifica mudanças no campo de texto
+checkboxlist.addEventListener('input', function() {
+    if (checkboxlist.value !== '') {
+        // Marca o checkbox correspondente
+        checkboxOption.checked = true;
+        // Desmarca todos os outros checkboxes
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] !== checkboxOption) {
+                checkboxes[i].checked = false;
+            }
+        }
+    } else {
+        checkboxOption.checked = false; // Desmarca o checkbox caso o campo esteja vazio
+    }
+});
+
+// Adiciona o evento para permitir apenas um checkbox marcado
+for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener("change", function() {
+        if (checkboxes[i].checked) {
+            // Quando um checkbox é marcado, desmarca todos os outros
+            for (let j = 0; j < checkboxes.length; j++) {
+                if (j !== i) {
+                    checkboxes[j].checked = false;
+                }
+            }
+            // Limpa o campo de texto quando um checkbox que não é o checkboxOption é selecionado
+            if (checkboxes[i] !== checkboxOption) {
+                checkboxlist.value = '';
+            }
+        }
+    });
+}
