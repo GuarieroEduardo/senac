@@ -100,7 +100,7 @@ checkboxlist.addEventListener('input', function() {
     }
 });
 
-// Adiciona o evento para permitir apenas um checkbox marcado
+// verifica apenas um checkbox marcado por vez
 for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener("change", function() {
         if (checkboxes[i].checked) {
