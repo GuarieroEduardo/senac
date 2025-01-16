@@ -6,19 +6,25 @@ def conectar():
     try:
         conexao = mysql.connector.connect(
             host="localhost",
-            user="atividades",
+            port="3307",
+            user="root",
             password="",
-            database="sistemadevendas"
+            database="sistemadevendas",
+            use_pure=True
 
         )
+        print(conexao) 
 
         if conexao.is_connected():
             print("conexão bem-sucedida!")
-            return conexao
+
+        else:
+            print("erro")
 
     except Error as e:
         print(f"Erro ao conectar: {e}")
         return None
+    
     
 def login(login, senha):
     conexao = conectar()
@@ -45,4 +51,6 @@ def login(login, senha):
     else:
         print("Erro com a conexão com o banco de dados")
 
-        
+x = 1 + 1
+print(x)
+conectar()
