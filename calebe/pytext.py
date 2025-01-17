@@ -13,13 +13,14 @@ def conectar():
             use_pure=True
 
         )
-        print(conexao) 
+
 
         if conexao.is_connected():
             print("conexão bem-sucedida!")
+            return conexao
 
         else:
-            print("erro")
+            print("Erro ao conectar com Banco!")
 
     except Error as e:
         print(f"Erro ao conectar: {e}")
@@ -28,8 +29,9 @@ def conectar():
     
 def login(login, senha):
     conexao = conectar()
-    
+    print(conexao)
     if conexao:
+        print("entrou")
         try:
             cursor = conexao.cursor()
             query = "SELECT * FROM usuarios WHERE login = %s AND senha = %s"
@@ -51,6 +53,5 @@ def login(login, senha):
     else:
         print("Erro com a conexão com o banco de dados")
 
-x = 1 + 1
-print(x)
+
 conectar()
