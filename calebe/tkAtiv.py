@@ -1,5 +1,6 @@
 from tkinter import *
-from tkinter import ttk, messagebox
+import csv
+from tkinter import ttk, messagebox, filedialog
 from pytext import Database  # Importando a classe Database
 
 # Instanciar a classe Database
@@ -51,9 +52,9 @@ def abrir_home_admin():
     frame.place(relx=0.5, rely=0.5, anchor=CENTER)
     
     Label(frame, text="Bem-vindo, Administrador!", font=("Arial", 16)).grid(row=0, column=0, columnspan=2, pady=10)
-    Button(frame, text="Cadastrar Produto", command=abrir_cadastro_produto, width=20).grid(row=1, column=0, pady=5)
-    Button(frame, text="Cadastrar Vendedor", command=abrir_cadastro_vendedor, width=20).grid(row=1, column=1, pady=5)
-    Button(frame, text="Ver Relatórios", command=abrir_vendas_realizadas, width=20).grid(row=2, column=0, pady=5)
+    Button(frame, text="Cadastrar Produto", command=abrir_cadastro_produto, width=20).grid(row=1, column=0,  pady=10, padx=20)
+    Button(frame, text="Cadastrar Vendedor", command=abrir_cadastro_vendedor, width=20).grid(row=1, column=1,  pady=10, padx=20)
+    Button(frame, text="Ver Relatórios", command=abrir_vendas_realizadas, width=20).grid(row=2, column=0,  pady=10, padx=20)
     Button(frame, text="Sair", command=abrir_login, width=20).grid(row=3, column=0, columnspan=2, pady=10)
 
 def abrir_home_vendedor(id_usuario):
@@ -76,22 +77,22 @@ def abrir_cadastro_produto():
     frame = Frame(janela, padx=20, pady=20)
     frame.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-    Label(frame, text="Cadastro de Produtos", font=("Arial", 16)).grid(row=0, column=0, columnspan=2, pady=20)
+    Label(frame, text="Cadastro de Produtos", font=("Arial", 16)).grid(row=0, column=0, columnspan=2 )
 
     # Criando os campos de entrada e centralizando na tela
-    Label(frame, text="Nome do Produto:").grid(row=1, column=0, padx=10, pady=10, sticky=W)
+    Label(frame, text="Nome do Produto:").grid(row=1, column=0,  pady=10, padx=20, sticky=W)
     nome_produto_entry = Entry(frame)
-    nome_produto_entry.grid(row=1, column=1, padx=10, pady=10)
+    nome_produto_entry.grid(row=1, column=1,  pady=10, padx=20)
 
-    Label(frame, text="Descrição:").grid(row=2, column=0, padx=10, pady=10, sticky=W)
+    Label(frame, text="Descrição:").grid(row=2, column=0,  pady=10, padx=20, sticky=W)
     descricao_entry = Entry(frame)
     descricao_entry.grid(row=2, column=1, padx=10, pady=10)
 
-    Label(frame, text="Quantidade em Estoque:").grid(row=3, column=0, padx=10, pady=10, sticky=W)
+    Label(frame, text="Quantidade em Estoque:").grid(row=3, column=0,  pady=10, padx=20, sticky=W)
     quantidade_entry = Entry(frame)
-    quantidade_entry.grid(row=3, column=1, padx=10, pady=10)
+    quantidade_entry.grid(row=3, column=1,  pady=10, padx=20)
 
-    Label(frame, text="Valor Unitário:").grid(row=4, column=0, padx=10, pady=10, sticky=W)
+    Label(frame, text="Valor Unitário:").grid(row=4, column=0, padx=20, pady=10, sticky=W)
     valor_entry = Entry(frame)
     valor_entry.grid(row=4, column=1, padx=10, pady=10)
 
@@ -116,8 +117,8 @@ def abrir_cadastro_produto():
             messagebox.showinfo("Sucesso", "Produto cadastrado com sucesso!")
             abrir_home_admin()
 
-    Button(frame, text="Salvar Produto", command=salvar_produto, width=20).grid(row=5, column=0, columnspan=2, pady=20, padx=20)
-    Button(frame, text="Voltar", command=abrir_home_admin, width=20).grid(row=5, column=2, columnspan=2, pady=20, padx=20)
+    Button(frame, text="Salvar Produto", command=salvar_produto, width=20).grid(row=5, column=0,  pady=20, padx=30)
+    Button(frame, text="Voltar", command=abrir_home_admin, width=20).grid(row=5, column=1,  pady=20, padx=30)
 
 def abrir_cadastro_vendedor():
     limpar_tela()
@@ -125,20 +126,20 @@ def abrir_cadastro_vendedor():
     frame = Frame(janela, padx=20, pady=20)
     frame.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-    Label(frame, text="Cadastro de Vendedor", font=("Arial", 14)).grid(row=0, column=0, columnspan=2, pady=20)
+    Label(frame, text="Cadastro de Vendedor", font=("Arial", 14)).grid(row=0, column=0, columnspan=2)
 
     # Campos de entrada
-    Label(frame, text="Nome do Vendedor:").grid(row=1, column=0, padx=10, pady=10, sticky=W)
+    Label(frame, text="Nome do Vendedor:").grid(row=1, column=0, padx=20, pady=10, sticky=W)
     nome_vendedor_entry = Entry(frame)
-    nome_vendedor_entry.grid(row=1, column=1, padx=10, pady=10)
+    nome_vendedor_entry.grid(row=1, column=1, padx=20, pady=10)
 
-    Label(frame, text="Login:").grid(row=2, column=0, padx=10, pady=10, sticky=W)
+    Label(frame, text="Login:").grid(row=2, column=0, padx=20, pady=10, sticky=W)
     login_entry = Entry(frame)
     login_entry.grid(row=2, column=1, padx=10, pady=10)
 
-    Label(frame, text="Senha:").grid(row=3, column=0, padx=10, pady=10, sticky=W)
+    Label(frame, text="Senha:").grid(row=3, column=0, padx=20, pady=10, sticky=W)
     senha_entry = Entry(frame, show="*")
-    senha_entry.grid(row=3, column=1, padx=10, pady=10)
+    senha_entry.grid(row=3, column=1, padx=20, pady=10)
 
     def salvar_vendedor():
         nome = nome_vendedor_entry.get()
@@ -157,8 +158,8 @@ def abrir_cadastro_vendedor():
         else:
             messagebox.showerror("Erro", "Preencha todos os campos!")
 
-    Button(frame, text="Salvar Vendedor", command=salvar_vendedor, width=20).grid(row=4, column=0, columnspan=2, pady=20, padx=20)
-    Button(frame, text="Voltar", command=abrir_home_admin, width=20).grid(row=4, column=2, columnspan=2, pady=20, padx=20)
+    Button(frame, text="Salvar Vendedor", command=salvar_vendedor, width=20).grid(row=4, column=0, pady=20, padx=20)
+    Button(frame, text="Voltar", command=abrir_home_admin, width=20).grid(row=4, column=1, pady=20, padx=20)
 
 
 def abrir_cadastro_venda(id_usuario):
@@ -208,15 +209,15 @@ def abrir_cadastro_venda(id_usuario):
         cliente_cpf = cpf_entry.get()
         cliente_endereco = endereco_entry.get()
         forma_pagamento = pagamento_combobox.get()
-        parcelas = parcelas_entry.get() if forma_pagamento == "Parcelado" else 1
+        parcelas = parcelas_entry.get() if forma_pagamento == "parcelado" else 1
         produto_selecionado = produtos_combobox.get()
         quantidade_produto = quantidade_produto_entry.get()
-        print(cliente_nome, cliente_cpf, cliente_endereco, forma_pagamento, parcelas, produto_selecionado, quantidade_produto)
 
         if cliente_nome and cliente_cpf and cliente_endereco and produto_selecionado and quantidade_produto:
             try:
                 quantidade_produto = int(quantidade_produto)
 
+                # Inserir cliente (ou atualizar se já existir)
                 query_cliente = """
                     INSERT INTO clientes (nome, cpf, endereco)
                     VALUES (%s, %s, %s)
@@ -225,14 +226,15 @@ def abrir_cadastro_venda(id_usuario):
                 db.cursor.execute(query_cliente, (cliente_nome, cliente_cpf, cliente_endereco, cliente_nome))
                 db.conexao.commit()
 
+                # Inserir a venda
                 query_venda = """
-                INSERT INTO vendas (cliente_id, vendedor_id, forma_pagamento, parcelas)
-                VALUES (
-                    (SELECT id FROM clientes WHERE cpf = %s),
-                    %s,
-                    %s,
-                    %s
-                     )
+                    INSERT INTO vendas (cliente_id, vendedor_id, forma_pagamento, parcelas)
+                    VALUES (
+                        (SELECT id FROM clientes WHERE cpf = %s),
+                        %s,
+                        %s,
+                        %s
+                    )
                 """
                 db.cursor.execute(query_venda, (cliente_cpf, id_usuario, forma_pagamento, parcelas))
                 db.conexao.commit()
@@ -241,12 +243,30 @@ def abrir_cadastro_venda(id_usuario):
                 db.cursor.execute("SELECT LAST_INSERT_ID()")
                 venda_id = db.cursor.fetchone()[0]
 
-                # Registrar item da venda
-                query_item_venda = """
-                    INSERT INTO itens_venda (venda_id, produto_id, quantidade)
-                    VALUES (%s, (SELECT id FROM produtos WHERE nome = %s), %s)
+                query_preco_unitario = """
+                    SELECT valor_unitario 
+                    FROM produtos 
+                    WHERE nome = %s
                 """
-                print(db.cursor.execute(query_item_venda, (venda_id, produto_selecionado, quantidade_produto)))
+
+                db.cursor.execute(query_preco_unitario, (produto_selecionado,))
+                preco_unitario = db.cursor.fetchone()[0]
+
+                query_prod_id = """
+                    SELECT id FROM produtos WHERE nome = %s
+                """
+                db.cursor.execute(query_prod_id, (produto_selecionado,))
+                produto_id = db.cursor.fetchone()[0]
+
+                # Calcula o preço total
+                preco_total = quantidade_produto * preco_unitario
+
+                # Inserir o item de venda com o preço total
+                query_item_venda = """
+                    INSERT INTO itens_venda (venda_id, produto_id, quantidade, preco_total)
+                    VALUES (%s, %s, %s, %s)
+                """
+                db.cursor.execute(query_item_venda, (venda_id, produto_id, quantidade_produto, preco_total))
                 db.conexao.commit()
 
                 messagebox.showinfo("Sucesso", "Venda registrada com sucesso!")
@@ -256,6 +276,7 @@ def abrir_cadastro_venda(id_usuario):
                 messagebox.showerror("Erro", f"Erro ao registrar venda: {e}")
         else:
             messagebox.showerror("Erro", "Preencha todos os campos!")
+
 
     Button(frame, text="Salvar Venda", command=lambda: salvar_venda(id_usuario), width=20).grid(row=8, column=0, pady=20, padx=20)
     Button(frame, text="Voltar", command=lambda: abrir_home_vendedor(id_usuario), width=20).grid(row=8, column=1, pady=20, padx=20)
@@ -304,8 +325,10 @@ def abrir_vendas_realizadas():
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao carregar vendas mensais: {e}")
 
+    Button(frame, text="Exporta - CSV", command=exportar_relatorio_vendas, width=20).grid(row=4, column=0,  pady=20)
+
     # Botão de voltar
-    Button(frame, text="Voltar", command=abrir_home_admin, width=20).grid(row=4, column=0, columnspan=2, pady=20)
+    Button(frame, text="Voltar", command=abrir_home_admin, width=20).grid(row=4, column=1, pady=20)
 
 
 def abrir_vendas_vendedor(id_usuario):
@@ -354,6 +377,38 @@ def abrir_vendas_vendedor(id_usuario):
     # Botão de voltar
     Button(frame, text="Voltar", command=lambda: abrir_home_vendedor(id_usuario), width=20).grid(row=2, column=0, columnspan=2, pady=20)
 
+def exportar_relatorio_vendas():
+    # Busca os dados de vendas no banco
+    vendas = db.gerar_relatorio_vendas()  # Deve retornar uma lista de tuplas com os d
+
+    # Configura o arquivo para salvar
+    arquivo = filedialog.asksaveasfilename(
+        defaultextension=".csv",
+        filetypes=[("CSV files", "*.csv")],
+        title="Salvar Relatório de Vendas"
+    )
+
+    if not arquivo:  # Se o usuário cancelar a operação
+        return
+
+    # Gera o relatório CSV
+    try:
+        with open(arquivo, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+
+            # Cabeçalho do CSV
+            writer.writerow(["Cliente", "Vendedor", "Produtos", "Quantidade", "Valor Total", "Data"])
+
+            # Dados das vendas
+            for venda in vendas:
+                cliente_id, vendedor_id, produtos_nome, quantidade, valor_total, data = venda
+                writer.writerow([cliente_id, vendedor_id, produtos_nome, quantidade,f"{valor_total:.2f}", data])
+
+        # Mensagem de sucesso
+        messagebox.showinfo("Sucesso", "Relatório exportado com sucesso!")
+    except Exception as e:
+        # Mensagem de erro em caso de falha
+        messagebox.showerror("Erro", f"Não foi possível exportar o relatório: {e}")
 
 def limpar_tela():
     for widget in janela.winfo_children():
