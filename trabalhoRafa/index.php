@@ -13,22 +13,34 @@ if(isset($_GET["erro"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <form method="POST" action="backend/router/loginRouter.php?acao=validarLogin">
-        <div>
-            <input type="text" name="email" placeholder="email">
-            <input type="text" name="senha" placeholder="senha">
-            <button type="submit">Logar</button>
-        </div>
-    </form>
-    <div class="msg-erro">
-        <?php echo $mensagem_erro?> 
+<header>
+
+<h1>Sistema de Agendamentos</h1>
+
+</header>
+
+
+<section id="reservar">
+<form action="/reservar" method="POST">
+
+
+    <div>
+        <a href="cadastroUse.html" id="agendamento"><h3>Cadastrar Usuário</h3></a>
     </div>
+    <div>
+        <a href="cadastroEspaco.html" id="agendamento"><h3>Cadastrar Espaço</h3></a>
+    </div>
+    <div>
+        <a href="reserva.html" id="agendamento"><h3>Reservar sala</h3></a>
+    </div>
+
+</form>
+</section>
 
 
 </body>

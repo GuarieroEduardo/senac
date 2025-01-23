@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Espaços</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <section id="reservar">
+        <h2>Cadastro Espaços</h2>
+        <form action="/reservar" method="POST">
+            <label for="usuario">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="espaco">Tipo:</label>
+            <input type="text" id="tipo" name="tipo" required>
+            
+            
+            <label for="data">Capacidade:</label>
+            <input type="text" id="capacidade" name="capacidade" required>
+            
+            
+            <label for="data">Descrição:</label>
+            <input type="text" id="descrição" name="descrição" required>
+
+
+            <button type="submit">Concluir</button>
+        </form>
+    </section>
+
+
+    <section id="cadastro-espaços">
+        <h2>Lista</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Capacidade</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sala de Reunião-1</td>
+                    <td>Prédio</td>
+                    <td>30</td>
+                    <td>Espaço-A</td>
+                    <td>
+                        <button class="editar">Editar</button>
+                        <button class="excluir">Excluir</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sala de Reunião-2</td>
+                    <td>Prédio</td>
+                    <td>50</td>
+                    <td>Espaço-B</td>
+                    <td>
+                        <button class="editar">Editar</button>
+                        <button class="excluir">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</body>
+</html>
