@@ -1,0 +1,34 @@
+create database sistema_reservas;
+drop  database sistema_reservas;
+
+use sistema_reservas;
+
+
+create table espacos(
+	id int not null primary key auto_increment,
+    nome varchar(100) not null,
+    tipo varchar(50),
+    capacidade int,
+    descricao text
+);
+
+
+create table usuarios(
+	id int auto_increment primary key,
+    nome varchar(100) not null,
+    email varchar(100) not null unique,
+    telefone varchar(20)
+);
+
+
+create table reservas(
+	id int auto_increment primary key,
+    usuario_id int,
+    espaco_id int,
+    data_reserva date,
+    horario_inicio time,
+    horario_fim time,
+    quantidade int,
+    foreign key (usuario_id) references usuarios(id),
+    foreign key (espaco_id) references espacos(id)
+);

@@ -13,31 +13,30 @@ if(isset($_GET["erro"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<header>
+    <header>
 
-<h1>Sistema de Agendamentos</h1>
+    <h1>Sistema de Agendamentos</h1>
 
-</header>
-
-
-<section id="reservar">
-<form action="/reservar" method="POST">
+    </header>
 
 
-    <div>
-        <a href="cadastroUse.html" id="agendamento"><h3>Cadastrar Usuário</h3></a>
-    </div>
-    <div>
-        <a href="cadastroEspaco.html" id="agendamento"><h3>Cadastrar Espaço</h3></a>
-    </div>
-    <div>
-        <a href="reserva.html" id="agendamento"><h3>Reservar sala</h3></a>
-    </div>
+    <section id="reservar">
+    <form action="/reservar" method="POST">
+
+
+        <div>
+            <a href="./pages/cadastro/cadastroUser.php" id="agendamento"><h3>Cadastrar Usuário</h3></a>
+        </div>
+        <div>
+            <a href="./pages/cadastro/cadastroEspaco.php" id="agendamento"><h3>Cadastrar Espaço</h3></a>
+        </div>
+        <div>
+            <a href="./pages/cadastro/reserva.php" id="agendamento"><h3>Reservar sala</h3></a>
+        </div>
 
 </form>
 </section>
