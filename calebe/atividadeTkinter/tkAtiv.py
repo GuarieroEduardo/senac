@@ -3,6 +3,7 @@ import csv
 from tkinter import ttk, messagebox, filedialog
 from pytext import Database  # Importando a classe Database
 
+
 # Instanciar a classe Database
 db = Database()
 
@@ -31,6 +32,7 @@ def login(usuario, senha):
 
 
 def abrir_login():
+
     limpar_tela()
     frame = Frame(janela, padx=20, pady=20)
     frame.place(relx=0.5, rely=0.5, anchor=CENTER)
