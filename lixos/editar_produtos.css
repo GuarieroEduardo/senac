@@ -66,6 +66,7 @@ form .LadoEsquerdo, form .LadoDireito {
 
 .FormProduto > input, .FormQuantidade > input, .FormPreco > input {
     height: 50px;
+    height: 20px;
     width: 95%;
 }
 
@@ -203,8 +204,8 @@ input[type="file"] {
 
 .temaCampanhaCorpo  input[type="checkbox"]{
     margin-right: 10px;
-    height: 23px;
-    width: 23px;
+    height: 21px;
+    width: 21px;
 }
 
 .temaCampanhaCorpo input[type="text"]{
@@ -227,81 +228,5 @@ input[type="file"] {
 
 
 
-
-
-
-
-
-
-/* Para telas menores que 900px */
-@media (max-width: 900px) {
-    dialog{
-        height: 540px;
-    }
-
-    form .LadoEsquerdo, form .LadoDireito{
-        height: 200px;
-        margin: 0;
-    }
-
-    /* Diminuindo o tamanho das fontes para os labels e textos */
-    .FormProduto > label, .FormQuantidade > label, .FormPreco > label, .FormTipo > label, .temaCampanhaHeard > div > p {
-        font-size: 17px;  
-    }
-
-    .FormImagem > label{
-        font-size: 18px;
-    }
-
-    .FormTipo{
-        margin: 0;
-    }
-
-     #Virtual{
-        margin-left: 8px;
-    }
-
-    .FormProduto > input, .FormQuantidade > input, .FormPreco > input{
-        font-size: 14px;
-        padding: 8px;    
-        height: 25px;
-    }
-
-    input[type="checkbox"] {
-        margin-left: 0;
-        height: 14px;
-        width: 14px;
-    }
-    .temaCampanhaCorpo  input[type="checkbox"]{
-        margin-right: 10px;
-        height: 18px;
-        width: 18px;
-    }
-
-    .buttonConcluir, .buttonrodaPe {
-        font-size: 18px;  
-        width: 220px;     
-        height: 50px;     
-    }
-
-    .UploadBox {
-        height: 250px; 
-    }
-
-    .UploadBox img {
-        width: 50px;  
-    }
-
-    .temaCampanhaCorpo > div > label {
-        font-size: 16px; 
-    }
-
-    .headerLogo > img {
-        width: 150px;  
-    }
-    .buttonrodaPe{
-        margin-top: 18px;
-    }
-}
 
 
