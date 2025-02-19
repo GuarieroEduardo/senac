@@ -117,72 +117,69 @@
                         <label for="Reveillon">Réveillon</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="checkboxOption">
-                        <input type="text" id="checkboxlist" placeholder="Digite o nome da campanha" list="ListCampanha" autocomplete="off">
-                        <datalist id="ListCampanha">
-                            <option value="Padrão">
-                            <!-- Janeiro -->
-                            <option value="Ano Novo">
-                            <option value="Dia de Reis">
-                        
-                            <!-- Fevereiro/Março -->
-                            <option value="Carnaval">
-                            <option value="Quarta-feira de Cinzas">
-                        
-                            <!-- Março -->
-                            <option value="Dia Internacional da Mulher">
-                        
-                            <!-- Março/Abril -->
-                            <option value="Sexta-feira Santa">
-                            <option value="Páscoa">
-                        
-                            <!-- Abril -->
-                            <option value="Dia de Tiradentes">
-                            
-                            <!-- Maio -->
-                            <option value="Dia do Trabalho">
-                            <option value="Dia das Mães">
-                        
-                            <!-- Junho -->
-                            <option value="Dia dos Namorados">
-                            <option value="Corpus Christi">
-                            <option value="Dia de Santo Antônio">
-                            <option value="Dia de São João">
-                            <option value="Dia de São Pedro">
-                        
-                            <!-- Julho -->
-                            <option value="Dia dos Avós">
-                        
-                            <!-- Agosto -->
-                            <option value="Dia do Estudante">
-                            <option value="Dia dos Pais">
-                        
-                            <!-- Setembro -->
-                            <option value="Independência do Brasil">
-                        
-                            <!-- Outubro -->
-                            <option value="Nossa Senhora Aparecida (Dia das Crianças)">
-                            <option value="Dia do Professor">
-                        
-                            <!-- Novembro -->
-                            <option value="Dia de Finados">
-                            <option value="Proclamação da República">
-                            <option value="Dia da Consciência Negra">
-                        
-                            <!-- Dezembro -->
-                            <option value="Natal">
-                            <option value="Véspera de Ano Novo">
-                        </datalist>
+                        <a href="" class="CriarNovaCampanha">Criar nova campanha</a>
+
                     </div>
 
-                    <div class="rodaPe">
+                    <footer class="rodaPe">
                         <div>
                             <button type="submit" class="buttonrodaPe">Concluido</button>
                         </div>
-                    </div>
+
+                    </footer>
+                
                 </div>
             </form>            
         </div>
+    </dialog>
+
+    <dialog id="CriacaoDeCampanha" open="dialog">
+        <div class="ModalContainer">
+            <header>
+                <div class="headerLogo">
+                    <img src="./logo (1) 2.png" alt="LOGO">
+                </div>
+                <div class="headerBotao">
+                    <button type="button" class="buttonClose2"> 
+                        <!-- Botão para fechar o segundo popup -->   
+                        <img src="./buttonClose.png" alt="botãoClose">
+                    </button>
+                </div>
+            </header>
+            <form id="CriacaoDeCampanhaForm">
+                <div class="cadastroEvento">
+                    <div class="cadastroEventoTema">
+                        <label for="">Nome da Campanha</label>
+    
+                        <input type="text" class="cadastroEvento">
+                    </div>
+
+                    <div class="cadastroEventoDescricao">
+                        <label for="">Descrição (Opicional)</label>
+                        <textarea cols="30" rows="10" placeholder="Digite aqui..."></textarea>
+
+                    </div>
+
+                    <div class="campanhaData">
+                        <div>
+                            <label for="data">Inicio:</label>
+                            <input type="date" >
+                        </div>
+
+                        <div>
+                            <label for="hora">Fim:</label>
+                            <input type="date" >
+                        </div>
+
+                    </div>
+                    <footer class="rodaPe">
+                        <div>
+                            <button type="submit" class="buttonrodaPe">Concluido</button>
+                        </div>
+
+                    </footer>
+                </div>
+
     </dialog>
     <script src="script.js"></script>
 </body>

@@ -27,7 +27,7 @@ header .buttonClose, header .buttonClose2 {
     cursor: pointer;
 }
 
-.FormProduto input, .FormQuantidade input, .FormPreco input{
+.FormProduto input, .FormQuantidade input, .FormPreco input, .cadastroEventoTema input, .cadastroEventoDescricao textarea{
     width: 100%;
 
 }
@@ -192,14 +192,34 @@ input[type="file"] {
     padding-left: 5px;
     padding-right: 5px;
     width: 210px;
+
 } 
+
+.CriarNovaCampanha{
+    display: flex;
+    color: #0BC0D3;
+    left: 10px;
+}
 
 .rodaPe{
     width: 100%;
     display: flex;
+
     justify-content: center;
 }
 
-.buttonrodaPe{
-    margin-top: 24px;
-}   
+
+
+footer {
+    position: fixed;
+    bottom: 120px;
+    left: 0;
+
+    text-align: center;
+
+}
+
+.campanhaData{
+    display: flex;
+}
+
