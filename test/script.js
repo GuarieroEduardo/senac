@@ -1,11 +1,14 @@
 // Selecionando os elementos do popup e formulário
 const modalPrimeiro = document.querySelector("#popupEditarProduto");
 const modalSegundo = document.querySelector("#popupConcluir");
+const modalTerceiro = document.querySelector("#CriacaoDeCampanha");
 
 const buttonOpen = document.querySelector(".buttonOpen");
 const buttonClose = document.querySelector(".buttonClose");
 const buttonConcluir = document.querySelector(".buttonConcluir");
 const buttonClose2 = document.querySelector(".buttonClose2");
+const buttonLinkCampanha = document.querySelector(".CriarNovaCampanha");
+const buttonClose3 = document.querySelector(".buttonClose3");
 
 const produto = document.getElementById("Produto");
 const quantidade = document.getElementById("Quantidade");
@@ -82,6 +85,16 @@ buttonConcluir.addEventListener("click", function() {
 // Fechar o segundo popup
 buttonClose2.addEventListener("click", function() {
     modalSegundo.close();
+});
+
+// Abrir o terceiro popup ao clicar em "Criar Campanha"
+buttonLinkCampanha.addEventListener("click", function() {
+    modalTerceiro.showModal();
+});
+
+// Fechar o terceiro popup
+buttonClose3.addEventListener("click", function() {
+    modalTerceiro.close();
 });
 
 // Adiciona um evento que verifica mudanças no campo de texto

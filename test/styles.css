@@ -18,7 +18,7 @@ header {
     width: 100px;
 }
 
-header .buttonClose, header .buttonClose2 {
+header .buttonClose, header .buttonClose2, header .buttonClose3 {
     background-color: transparent;
     border: none;
     margin-top: 18px;
@@ -204,7 +204,6 @@ input[type="file"] {
 .rodaPe{
     width: 100%;
     display: flex;
-
     justify-content: center;
 }
 
@@ -212,9 +211,8 @@ input[type="file"] {
 
 footer {
     position: fixed;
-    bottom: 120px;
+    bottom: 172px;
     left: 0;
-
     text-align: center;
 
 }
