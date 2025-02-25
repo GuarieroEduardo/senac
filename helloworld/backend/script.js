@@ -7,3 +7,5 @@ async function buscarDados() {
         console.log(error);
     }
 }
+
+buscarDados();

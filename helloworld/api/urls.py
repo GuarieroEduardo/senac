@@ -1,10 +1,16 @@
-from django.urls import path
+from django.urls import path, include
 
-from .views import(listar_funcionarios, cadastrar_funcionario, obter_funcionario)
+# biblioteca rest_framework
+from rest_framework.routers import DefaultRouter
+from .views import FuncionarioViewSet
+
+router = DefaultRouter()    
+
+router.register('funcionarios', FuncionarioViewSet)
+
 
 urlpatterns = [
-    path('funcionarios/', listar_funcionarios, name='listar_funcionario'),
-    path('funcionarios/cadastrar/', cadastrar_funcionario, name='cadastrar_funcionario'),
-    path('obter/<int:id>', obter_funcionario,  name='obter_funcionario'),
+    path('', include(router.urls)),  
+      
 ]
 

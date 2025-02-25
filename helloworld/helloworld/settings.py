@@ -45,18 +45,6 @@ INSTALLED_APPS = [
 
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:5500'
-]
-
-CORS_ALLOW_HEADERS = [
-    'content-type',
-    'Authorization',
-]
-
-CORS_ALLOW_CREDENTIALS = True
-
-ROOT_URLCONF = 'helloworld.urls'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,6 +56,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:5500'
+    
+]
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'Authorization',
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'helloworld.urls'
 
