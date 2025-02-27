@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in alunos%}
+            <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.nome}}</td>
+            <td>{{i.email}}</td>
+            <td>
+                <button class="btn btn-danger">Deletar</button>
+                <button class="btn btn-primary">Editar</button>
+            </td>
+            </tr>
+        {% endfor%}
+    </tbody>
+</table>
