@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="alunoForm" action="">
+        <input id="nome" type="text" placeholder="Digite o nome do aluno">
+        <input id="email" type="text" placeholder="Digite o email do aluno">
+
+
+        <button type="submit">cadastrar</button>
+    </form>
+
+    <div id="menagemErro"></div>
+    <script src="{% static 'js/cadastrar.js' %}"></script>
+    
+</body>
+</html>
