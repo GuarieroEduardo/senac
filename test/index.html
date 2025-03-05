@@ -23,7 +23,7 @@
                     </button>
                 </div>
             </header>
-
+            <div class="LadoEsquerdo">
             <form id="produtoForm" autocomplete="off">
                 <div class="FormProduto">
                     <label for="Produto">Nome do Produto:</label>
@@ -52,7 +52,8 @@
                         <label for="Virtual">Virtual</label>
                     </div>
                 </div>
-
+            </div>
+            <div class="ladoDireito">
                 <div class="FormImagem">
                     <label>Faça o upload da imagem do produto:</label>
                     <label for="imagem" class="UploadBox">
@@ -64,11 +65,15 @@
                         <small>JPEG - PNG - WEBP</small>
                     </label>
                     <input type="file" id="imagem" accept="image/jpeg, image/png,image/gif">
-                    <div class="produtoFormBotao">
-                        <!-- Botão Concluir redireciona para o segundo pop up -->
-                        <button type="button" class="buttonConcluir">Concluido</button>
-                    </div>
+                    <footer class="produtoFormBotao">
+
+                        <div>
+                            <!-- Botão Concluir redireciona para o segundo pop up -->
+                            <button type="button" class="buttonConcluir">Concluido</button>
+                        </div>
+                    </footer>
                 </div>
+            </div>
             </form>
         </div>
     </dialog>
@@ -96,6 +101,7 @@
                 </div>
 
                 <div class="temaCampanhaCorpo">
+                    
                     <div>
                         <input type="checkbox" id="Padrão">
                         <label for="Padrão">Padrão</label>
@@ -116,24 +122,26 @@
                         <input type="checkbox" id="Reveillon">
                         <label for="Reveillon">Réveillon</label>
                     </div>
+                
+                </div>
+                <div class="criarCampanha">
                     <div>
                         <a href="#CriacaoDeCampanha" class="CriarNovaCampanha">Criar nova campanha</a>
 
                     </div>
 
-                    <footer class="rodaPe">
-                        <div>
-                            <button type="submit" class="buttonrodaPe">Concluido</button>
-                        </div>
-
-                    </footer>
-                
                 </div>
+                <footer class="rodaPe">
+                    <div>
+                        <button type="submit" class="buttonrodaPe">Concluido</button>
+                    </div>
+
+                </footer>
             </form>            
         </div>
     </dialog>
 
-    <dialog id="CriacaoDeCampanha" >
+    <dialog id="CriacaoDeCampanha">
         <div class="ModalContainer">
             <header>
                 <div class="headerLogo">
@@ -141,46 +149,45 @@
                 </div>
                 <div class="headerBotao">
                     <button type="button" class="buttonClose3"> 
-                        <!-- Botão para fechar o segundo popup -->   
                         <img src="./buttonClose.png" alt="botãoClose">
                     </button>
                 </div>
             </header>
+    
             <form id="CriacaoDeCampanhaForm">
                 <div class="cadastroEvento">
                     <div class="cadastroEventoTema">
-                        <label for="">Nome da Campanha</label>
+                        <label for="nomeCampanha">Nome da Campanha</label>
+                        <input type="text" id="nomeCampanha">
+                    </div>
     
-                        <input type="text" class="cadastroEvento">
-                    </div>
-
                     <div class="cadastroEventoDescricao">
-                        <label for="">Descrição (Opicional)</label>
-                        <textarea cols="30" rows="10" placeholder="Digite aqui..."></textarea>
-
+                        <label for="descricaoCampanha">Descrição (Opcional)</label>
+                        <textarea id="descricaoCampanha" cols="30" rows="10" placeholder="Digite aqui..."></textarea>
                     </div>
-
+    
                     <div class="campanhaData">
-                        <div>
-                            <label for="data">Inicio:</label>
-                            <input type="date" >
+                        <div class="inicio">
+                            <label for="dataInicio">Início:</label>
+                            <input type="date" id="dataInicio">
                         </div>
-
-                        <div>
-                            <label for="hora">Fim:</label>
-                            <input type="date" >
+    
+                        <div class="fim">
+                            <label for="dataFim">Fim:</label>
+                            <input type="date" id="dataFim">
                         </div>
-
                     </div>
+    
                     <footer class="rodaPe">
                         <div>
-                            <button type="submit" class="buttonrodaPe">Concluido</button>
+                            <button type="submit" class="buttonrodaPe">Concluído</button>
                         </div>
-
                     </footer>
                 </div>
-
+            </form>
+        </div>
     </dialog>
+    
     <script src="script.js"></script>
 </body>
 </html>

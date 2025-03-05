@@ -97,36 +97,117 @@ buttonClose3.addEventListener("click", function() {
     modalTerceiro.close();
 });
 
-// Adiciona um evento que verifica mudanças no campo de texto
-checkboxlist.addEventListener('input', function() {
-    if (checkboxlist.value !== '') {
-        // Marca o checkbox correspondente
-        checkboxOption.checked = true;
-        // Desmarca todos os outros checkboxes
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i] !== checkboxOption) {
-                checkboxes[i].checked = false;
-            }
-        }
-    } else {
-        checkboxOption.checked = false; // Desmarca o checkbox caso o campo esteja vazio
-    }
-});
+// // Adiciona um evento que verifica mudanças no campo de texto
+// checkboxlist.addEventListener('input', function() {
+//     if (checkboxlist.value !== '') {
+//         // Marca o checkbox correspondente
+//         checkboxOption.checked = true;
+//         // Desmarca todos os outros checkboxes
+//         for (let i = 0; i < checkboxes.length; i++) {
+//             if (checkboxes[i] !== checkboxOption) {
+//                 checkboxes[i].checked = false;
+//             }
+//         }
+//     } else {
+//         checkboxOption.checked = false; // Desmarca o checkbox caso o campo esteja vazio
+//     }
+// });
 
-// verifica apenas um checkbox marcado por vez
-for (let i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].addEventListener("change", function() {
-        if (checkboxes[i].checked) {
-            // Quando um checkbox é marcado, desmarca todos os outros
-            for (let j = 0; j < checkboxes.length; j++) {
-                if (j !== i) {
-                    checkboxes[j].checked = false;
-                }
-            }
-            // Limpa o campo de texto quando um checkbox que não é o checkboxOption é selecionado
-            if (checkboxes[i] !== checkboxOption) {
-                checkboxlist.value = '';
-            }
+// // verifica apenas um checkbox marcado por vez
+// for (let i = 0; i < checkboxes.length; i++) {
+//     checkboxes[i].addEventListener("change", function() {
+//         if (checkboxes[i].checked) {
+//             // Quando um checkbox é marcado, desmarca todos os outros
+//             for (let j = 0; j < checkboxes.length; j++) {
+//                 if (j !== i) {
+//                     checkboxes[j].checked = false;
+//                 }
+//             }
+//             // Limpa o campo de texto quando um checkbox que não é o checkboxOption é selecionado
+//             if (checkboxes[i] !== checkboxOption) {
+//                 checkboxlist.value = '';
+//             }
+//         }
+//     });
+// }
+
+
+
+// Selecionando elementos do popup de criação de campanha
+const formCampanha = document.querySelector("#CriacaoDeCampanhaForm");
+
+// Campos do formulário
+const nomeCampanha = document.getElementById("nomeCampanha");
+const descricaoCampanha = document.getElementById("descricaoCampanha");
+const dataInicio = document.getElementById("dataInicio");
+const dataFim = document.getElementById("dataFim");
+
+// Local onde as novas campanhas serão adicionadas no segundo modal
+const campanhaLista = document.querySelector(".temaCampanhaCorpo");
+
+if (formCampanha && nomeCampanha && dataInicio && dataFim && campanhaLista) {
+    formCampanha.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita o envio padrão do formulário
+
+        // Validação do formulário
+        let isValid = true;
+
+        if (nomeCampanha.value.trim() === "") {
+            alert("O nome da campanha é obrigatório.");
+            isValid = false;
         }
+
+        if (dataInicio.value === "") {
+            alert("A data de início é obrigatória.");
+            isValid = false;
+        }
+
+        if (dataFim.value === "") {
+            alert("A data de fim é obrigatória.");
+            isValid = false;
+        }
+
+        let inicio = new Date(dataInicio.value);
+        let fim = new Date(dataFim.value);
+
+        if (dataInicio.value && dataFim.value && fim < inicio) {
+            alert("A data de fim não pode ser anterior à data de início.");
+            isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Criando um ID único para a campanha
+        let idCampanha = nomeCampanha.value.trim().toLowerCase().replace(/\s+/g, "_");
+
+        if (document.getElementById(idCampanha)) {
+            alert("Essa campanha já existe!");
+            return;
+        }
+
+        // Criando os elementos para adicionar no segundo modal
+        let novaCampanhaNoSegundoModal = document.createElement("div");
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = idCampanha;
+
+        let label = document.createElement("label");
+        label.htmlFor = idCampanha;
+        label.textContent = nomeCampanha.value.trim();
+
+        // Montando a estrutura
+        novaCampanhaNoSegundoModal.appendChild(checkbox);
+        novaCampanhaNoSegundoModal.appendChild(label);
+
+        // Adicionando a nova campanha ao segundo modal
+        campanhaLista.appendChild(novaCampanhaNoSegundoModal);
+
+        // Mensagem de sucesso
+        alert("Campanha criada com sucesso!");
+
+        // Fecha o modal de criação de campanha
+        modalTerceiro.close();
+        formCampanha.reset();
     });
 }
