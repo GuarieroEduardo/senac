@@ -12,18 +12,18 @@
     
     <!-- Primeiro Popup: Formulário de Adição de Produto -->
     <dialog id="popupEditarProduto">
+        <header>
+            <div class="headerLogo">
+                <img src="./logo (1) 2.png" alt="LOGO">
+            </div>
+            <div class="headerBotao">
+                <button type="button" class="buttonClose">    
+                    <img src="./buttonClose.png" alt="botãoClose">
+                </button>
+            </div>
+        </header>
         <div class="ModalContainer">
-            <header>
-                <div class="headerLogo">
-                    <img src="./logo (1) 2.png" alt="LOGO">
-                </div>
-                <div class="headerBotao">
-                    <button type="button" class="buttonClose">    
-                        <img src="./buttonClose.png" alt="botãoClose">
-                    </button>
-                </div>
-            </header>
-            <div class="LadoEsquerdo">
+            <div class="ladoEsquerdo">
             <form id="produtoForm" autocomplete="off">
                 <div class="FormProduto">
                     <label for="Produto">Nome do Produto:</label>
@@ -80,18 +80,19 @@
 
     <!-- Segundo Popup: continuação do conteudo do primeiro pop up-->
     <dialog id="popupConcluir">
+        <header>
+            <div class="headerLogo">
+                <img src="./logo (1) 2.png" alt="LOGO">
+            </div>
+            <div class="headerBotao">
+                <button type="button" class="buttonClose2"> 
+                    <!-- Botão para fechar o segundo popup -->   
+                    <img src="./buttonClose.png" alt="botãoClose">
+                </button>
+            </div>
+        </header>
         <div class="ModalContainer">
-            <header>
-                <div class="headerLogo">
-                    <img src="./logo (1) 2.png" alt="LOGO">
-                </div>
-                <div class="headerBotao">
-                    <button type="button" class="buttonClose2"> 
-                        <!-- Botão para fechar o segundo popup -->   
-                        <img src="./buttonClose.png" alt="botãoClose">
-                    </button>
-                </div>
-            </header>
+            <div class="produto2Corpo">
             <form id="produtoForm2">
                 <div class="temaCampanhaHeard">
                     <div class="imagemTemanhaCampanha">
@@ -131,6 +132,7 @@
                     </div>
 
                 </div>
+            </div>
                 <footer class="rodaPe">
                     <div>
                         <button type="submit" class="buttonrodaPe">Concluido</button>
@@ -142,28 +144,30 @@
     </dialog>
 
     <dialog id="CriacaoDeCampanha">
-        <div class="ModalContainer">
-            <header>
-                <div class="headerLogo">
-                    <img src="./logo (1) 2.png" alt="LOGO">
-                </div>
-                <div class="headerBotao">
-                    <button type="button" class="buttonClose3"> 
-                        <img src="./buttonClose.png" alt="botãoClose">
-                    </button>
-                </div>
-            </header>
-    
+        <header>
+            <div class="headerLogo">
+                <img src="./logo (1) 2.png" alt="LOGO">
+            </div>
+            <div class="headerBotao">
+                <button type="button" class="buttonClose3"> 
+                    <img src="./buttonClose.png" alt="botãoClose">
+                </button>
+            </div>
+        </header>
+        <div class="ModalContainerModal">
             <form id="CriacaoDeCampanhaForm">
                 <div class="cadastroEvento">
+                    <div class="miniContainer">
                     <div class="cadastroEventoTema">
                         <label for="nomeCampanha">Nome da Campanha</label>
                         <input type="text" id="nomeCampanha">
                     </div>
-    
+                
+                    
                     <div class="cadastroEventoDescricao">
                         <label for="descricaoCampanha">Descrição (Opcional)</label>
                         <textarea id="descricaoCampanha" cols="30" rows="10" placeholder="Digite aqui..."></textarea>
+                    </div>
                     </div>
     
                     <div class="campanhaData">
@@ -178,9 +182,9 @@
                         </div>
                     </div>
     
-                    <footer class="rodaPe">
+                    <footer class="rodaPeModal">
                         <div>
-                            <button type="submit" class="buttonrodaPe">Concluído</button>
+                            <button type="submit" class="buttonrodaPeModal">Concluído</button>
                         </div>
                     </footer>
                 </div>
