@@ -15,11 +15,8 @@ const quantidade = document.getElementById("Quantidade");
 const preco = document.getElementById("Preco");
 const campanhaCheckbox = document.getElementById("Campanha");
 
-// inputs do segundo pop Up
-const checkboxOption = document.getElementById('checkboxOption');
-const checkboxlist = document.getElementById('checkboxlist');
-// Seleciona todos os checkboxes dentro do segundo popup (popupConcluir)
-const checkboxes = modalSegundo.querySelectorAll("input[type='checkbox']");
+const checkboxlist = document.getElementById("checkboxlist");
+const campanhaLista = document.querySelector(".temaCampanhaCorpo");
 
 // Função para exibir erros
 function ShowError(input, mensagem) {
@@ -38,22 +35,21 @@ function ShowSucesso(input) {
 
 // Função de validação dos campos obrigatórios
 function checkRequired(inputs) {
-    let isValid = true;
-    inputs.forEach(function(input) {
+    return inputs.every(input => {
         if (input.value.trim() === "") {
             ShowError(input, "Campo obrigatório");
-            isValid = false;
+            return false;
         } else {
             ShowSucesso(input);
+            return true;
         }
     });
-    return isValid;
 }
 
 // Função para validar o checkbox de Campanha
 function checkCampanhaRequired() {
     if (!campanhaCheckbox.checked) {
-        ShowError(campanhaCheckbox, "*"); // Exibe o asterisco como erro no campo Campanha
+        ShowError(campanhaCheckbox, "*");
         return false;
     } else {
         ShowSucesso(campanhaCheckbox);
@@ -61,153 +57,72 @@ function checkCampanhaRequired() {
     }
 }
 
-// Função para abrir o primeiro popup
-buttonOpen.addEventListener("click", function() {
-    modalPrimeiro.showModal();
-});
-
-// Função para fechar o primeiro popup
-buttonClose.addEventListener("click", function() {
-    modalPrimeiro.close();
-});
-
-// Abrir o segundo popup ao clicar em "Concluir"
-// Se todos os campos e o checkbox de campanha estiverem marcado mudara de popUp
-buttonConcluir.addEventListener("click", function() {
-    let isFormValid = checkRequired([produto, quantidade, preco]);
-    let isCampanhaValid = checkCampanhaRequired();
-
-    if (isFormValid && isCampanhaValid) {
+// Eventos para abrir e fechar popups
+buttonOpen.addEventListener("click", () => modalPrimeiro.showModal());
+buttonClose.addEventListener("click", () => modalPrimeiro.close());
+buttonConcluir.addEventListener("click", () => {
+    if (checkRequired([produto, quantidade, preco]) && checkCampanhaRequired()) {
         modalSegundo.showModal();
     }
 });
+buttonClose2.addEventListener("click", () => modalSegundo.close());
+buttonLinkCampanha.addEventListener("click", () => modalTerceiro.showModal());
+buttonClose3.addEventListener("click", () => modalTerceiro.close());
 
-// Fechar o segundo popup
-buttonClose2.addEventListener("click", function() {
-    modalSegundo.close();
-});
-
-// Abrir o terceiro popup ao clicar em "Criar Campanha"
-buttonLinkCampanha.addEventListener("click", function() {
-    modalTerceiro.showModal();
-});
-
-// Fechar o terceiro popup
-buttonClose3.addEventListener("click", function() {
-    modalTerceiro.close();
-});
-
-// // Adiciona um evento que verifica mudanças no campo de texto
-// checkboxlist.addEventListener('input', function() {
-//     if (checkboxlist.value !== '') {
-//         // Marca o checkbox correspondente
-//         checkboxOption.checked = true;
-//         // Desmarca todos os outros checkboxes
-//         for (let i = 0; i < checkboxes.length; i++) {
-//             if (checkboxes[i] !== checkboxOption) {
-//                 checkboxes[i].checked = false;
-//             }
-//         }
-//     } else {
-//         checkboxOption.checked = false; // Desmarca o checkbox caso o campo esteja vazio
-//     }
-// });
-
-// // verifica apenas um checkbox marcado por vez
-// for (let i = 0; i < checkboxes.length; i++) {
-//     checkboxes[i].addEventListener("change", function() {
-//         if (checkboxes[i].checked) {
-//             // Quando um checkbox é marcado, desmarca todos os outros
-//             for (let j = 0; j < checkboxes.length; j++) {
-//                 if (j !== i) {
-//                     checkboxes[j].checked = false;
-//                 }
-//             }
-//             // Limpa o campo de texto quando um checkbox que não é o checkboxOption é selecionado
-//             if (checkboxes[i] !== checkboxOption) {
-//                 checkboxlist.value = '';
-//             }
-//         }
-//     });
-// }
-
-
-
-// Selecionando elementos do popup de criação de campanha
+// Evento para adicionar uma nova campanha
 const formCampanha = document.querySelector("#CriacaoDeCampanhaForm");
-
-// Campos do formulário
-const nomeCampanha = document.getElementById("nomeCampanha");
-const descricaoCampanha = document.getElementById("descricaoCampanha");
-const dataInicio = document.getElementById("dataInicio");
-const dataFim = document.getElementById("dataFim");
-
-// Local onde as novas campanhas serão adicionadas no segundo modal
-const campanhaLista = document.querySelector(".temaCampanhaCorpo");
-
-if (formCampanha && nomeCampanha && dataInicio && dataFim && campanhaLista) {
+if (formCampanha) {
     formCampanha.addEventListener("submit", function (event) {
-        event.preventDefault(); // Evita o envio padrão do formulário
-
-        // Validação do formulário
-        let isValid = true;
-
-        if (nomeCampanha.value.trim() === "") {
-            alert("O nome da campanha é obrigatório.");
-            isValid = false;
-        }
-
-        if (dataInicio.value === "") {
-            alert("A data de início é obrigatória.");
-            isValid = false;
-        }
-
-        if (dataFim.value === "") {
-            alert("A data de fim é obrigatória.");
-            isValid = false;
-        }
-
+        event.preventDefault();
+        let nome = nomeCampanha.value.trim();
         let inicio = new Date(dataInicio.value);
         let fim = new Date(dataFim.value);
 
-        if (dataInicio.value && dataFim.value && fim < inicio) {
-            alert("A data de fim não pode ser anterior à data de início.");
-            isValid = false;
+        if (!nome || dataInicio.value === "" || dataFim.value === "" || fim < inicio) {
+            alert("Preencha todos os campos corretamente.");
+            return;
         }
 
-        if (!isValid) return;
-
-        // Criando um ID único para a campanha
-        let idCampanha = nomeCampanha.value.trim().toLowerCase().replace(/\s+/g, "_");
-
+        let idCampanha = nome.toLowerCase().replace(/\s+/g, "_");
         if (document.getElementById(idCampanha)) {
             alert("Essa campanha já existe!");
             return;
         }
 
-        // Criando os elementos para adicionar no segundo modal
-        let novaCampanhaNoSegundoModal = document.createElement("div");
+        let novaCampanha = document.createElement("div");
+        novaCampanha.classList.add("checkbox-item");
 
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.id = idCampanha;
+        checkbox.classList.add("campanha-checkbox");
 
         let label = document.createElement("label");
         label.htmlFor = idCampanha;
-        label.textContent = nomeCampanha.value.trim();
+        label.textContent = nome;
 
-        // Montando a estrutura
-        novaCampanhaNoSegundoModal.appendChild(checkbox);
-        novaCampanhaNoSegundoModal.appendChild(label);
+        novaCampanha.appendChild(checkbox);
+        novaCampanha.appendChild(label);
+        campanhaLista.appendChild(novaCampanha);
 
-        // Adicionando a nova campanha ao segundo modal
-        campanhaLista.appendChild(novaCampanhaNoSegundoModal);
-
-        // Mensagem de sucesso
         alert("Campanha criada com sucesso!");
-
-        // Fecha o modal de criação de campanha
         modalTerceiro.close();
         formCampanha.reset();
     });
 }
+
+// Delegação de evento para checkboxes do segundo popup
+modalSegundo.addEventListener("change", function(event) {
+    if (event.target.type === "checkbox") {
+        let checkboxes = modalSegundo.querySelectorAll("input[type='checkbox']");
+        checkboxes.forEach(cb => cb.checked = cb === event.target);
+    }
+});
+
+// Verifica mudanças no campo de texto e controla checkboxes
+checkboxlist.addEventListener("input", function() {
+    let checkboxes = modalSegundo.querySelectorAll("input[type='checkbox']");
+    if (checkboxlist.value.trim() !== "") {
+        checkboxes.forEach(cb => cb.checked = false);
+    }
+});

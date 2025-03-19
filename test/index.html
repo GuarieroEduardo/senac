@@ -23,8 +23,8 @@
             </div>
         </header>
         <div class="ModalContainer">
-            <div class="ladoEsquerdo">
             <form id="produtoForm" autocomplete="off">
+            <div class="ladoEsquerdo">
                 <div class="FormProduto">
                     <label for="Produto">Nome do Produto:</label>
                     <input type="text" id="Produto" placeholder="Produto">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="FormTipo">
                     <div><label>Tipo:</label></div>
-                    <div>
+                    <div class="FormCheckbox">
                         <input type="checkbox" id="Campanha">
                         <label for="Campanha">Campanha</label>
                         <small class="alerta">*</small> 
@@ -125,15 +125,15 @@
                     </div>
                 
                 </div>
-                <div class="criarCampanha">
-                    <div>
-                        <a href="#CriacaoDeCampanha" class="CriarNovaCampanha">Criar nova campanha</a>
-
-                    </div>
-
-                </div>
             </div>
-                <footer class="rodaPe">
+            <footer class="rodaPe">
+                    <div class="criarCampanha">
+                        <div>
+                            <a href="#CriacaoDeCampanha" class="CriarNovaCampanha">Criar nova campanha</a>
+        
+                        </div>
+        
+                    </div>
                     <div class="rodaPeBotao">
                         <button type="submit" class="buttonrodaPe">Concluido</button>
                     </div>

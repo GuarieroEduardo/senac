@@ -394,15 +394,21 @@ footer, .rodaPeModal {
     }
 
     header{
+        
         height: 15%;
     
     }
 
     .headerLogo > img {
-        width: 140px;
+        width: 200px;
         
     }
     .cadastroEvento{
+        width: 100%;
+    }
+    #produtoForm{
+        display: flex;
+        flex-direction: row;
         width: 100%;
     }
 
@@ -414,16 +420,20 @@ footer, .rodaPeModal {
         flex-direction: row;
 
     }
+    .ladoEsquerdo{
+        margin-top: 40px;
+    }
+    
 
     .ladoEsquerdo, .ladoDireito, .cadastroEventoTema, .cadastroEventoDescricao {
         width: 48%;
-        height: 100%;
+        
 
     }
 
     .FormProduto input, .FormQuantidade input, .FormPreco input, .cadastroEventoTema input, .cadastroEventoDescricao textarea{
         width: 100%;
-        height: 30px;
+        height: 40px;
     
     }
     .FormImagem .UploadBox{
@@ -432,7 +442,7 @@ footer, .rodaPeModal {
 
     .FormProduto > label, .FormQuantidade > label, .FormPreco > label, .FormImagem > label, .cadastroEventoTema > label, .cadastroEventoDescricao > label, .campanhaData > label, .FormTipo div > label {
         margin-bottom: 15px; 
-        font-size: 18px;
+        font-size: 22px;
     }
     
     input[type="checkbox"] {
@@ -440,6 +450,16 @@ footer, .rodaPeModal {
         width: 20px;
         
 
+    }
+    
+
+    .UploadBox{
+        height: 300px ;
+    }
+
+    .FormCheckbox {
+        display: flex;
+        gap: 10px;
     }
 
     .temaCampanhaCorpo{
@@ -455,18 +475,28 @@ footer, .rodaPeModal {
         display: flex;
         position: relative;
         justify-content: end;
-        margin-top: 168px;
+        margin-top: 50px;
         
     
     }
     .rodaPe {
        
        display: flex;
-       justify-content: end;
+       justify-content: space-between;
      
         
     }
-    .buttonConcluir, .buttonrodaPe {
+
+    .criarCampanha{
+        display: flex;
+        align-items: end;
+    }
+
+    .criarCampanha > div{
+        font-size: 22px;
+        margin: 0px 0px 25px 50px;
+    }
+    .buttonConcluir, .buttonrodaPe, .buttonrodaPeModal {
         border-radius: 10px;
         border: none;
         margin-top: 90px;
@@ -482,9 +512,32 @@ footer, .rodaPeModal {
 
     .rodaPeBotao{
         display: inline-block;
-        margin: 11px 34px; /* Margem lateral */
+        margin: 4px 39px; /* Margem lateral */
+    }
+
+    .temaCampanhaCorpo{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        flex-direction: center;
+        align-items: center;  
+
+
+    }
+
+    .temaCampanhaCorpo > div > label{
+        font-size: 20px;
+    }
+
+    .temaCampanhaHeard > div > p{
+        font-size: 22px;
     }
     
+    .cadastroEvento{
+        width: 100%;
+        margin-top: 25px;
+    }
 }
 
 
