@@ -538,6 +538,22 @@ footer, .rodaPeModal {
         width: 100%;
         margin-top: 25px;
     }
+
+
+    .cadastroEventoDescricao textarea{
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        box-sizing: border-box; /* Mantém o tamanho total fixo */
+    }
+
+    .cadastroEventoTema input{
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
 }
 
 
