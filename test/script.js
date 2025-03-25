@@ -120,9 +120,25 @@ modalSegundo.addEventListener("change", function(event) {
 });
 
 // Verifica mudanças no campo de texto e controla checkboxes
-checkboxlist.addEventListener("input", function() {
-    let checkboxes = modalSegundo.querySelectorAll("input[type='checkbox']");
-    if (checkboxlist.value.trim() !== "") {
-        checkboxes.forEach(cb => cb.checked = false);
+// checkboxlist.addEventListener("input", function() {
+//     let checkboxes = modalSegundo.querySelectorAll("input[type='checkbox']");
+//     if (checkboxlist.value.trim() !== "") {
+//         checkboxes.forEach(cb => cb.checked = false);
+//     }
+// });
+
+document.getElementById("imagem").addEventListener("change", function(event) {
+    console.log("wdadw")
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const uploadBox = document.querySelector(".UploadBox");
+            uploadBox.classList.add("has-image");
+            uploadBox.style.backgroundImage = `url(${e.target.result})`;
+            uploadBox.style.backgroundSize = "cover";
+            uploadBox.style.backgroundPosition = "center";
+        };
+        reader.readAsDataURL(file);
     }
 });

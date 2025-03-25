@@ -6,6 +6,7 @@ dialog {
     width: 300px;
     height: 640px;
     color: #FFFFFF;
+    
 }
 header {
     display: flex;
@@ -111,7 +112,8 @@ input[type="checkbox"] {
     visibility: visible;
 }
 
-.UploadBox {
+
+/* imagem mudando dentro da caixa */.UploadBox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,7 +127,41 @@ input[type="checkbox"] {
     cursor: pointer;
     color: #666;
     text-align: center;
+    overflow: hidden; /* Garante que nada saia da borda */
+    position: relative;
 }
+
+.UploadBox .default-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.UploadBox img {
+    width: 50px; /* Ajuste conforme necessário */
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.UploadBox.has-image .default-content {
+    opacity: 0; /* Some quando a imagem é carregada */
+    pointer-events: none;
+}
+
+.UploadBox .preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+/* imagem mudando dentro da caixa */
 
 .UploadBox:hover {
     background-color: #ececec;
@@ -230,6 +266,19 @@ footer, .rodaPeModal {
     text-align: end;
 } 
 
+@media screen and (max-width: 375px) {
+    .temaCampanhaCorpo{
+        height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    
+    }
+    
+    
+}
+
+
+
 @media  (min-width: 375px) and (max-width: 430px) {
     .temaCampanhaCorpo{
         height: 420px;
@@ -257,7 +306,7 @@ footer, .rodaPeModal {
         font-size: 15px;
     }
     .temaCampanhaCorpo{
-        height: 40px;
+        height: 450px;
         overflow-y: auto;
         overflow-x: hidden;
     
@@ -265,7 +314,7 @@ footer, .rodaPeModal {
 }
 
 /* CELULARES GRANDES (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 767px) {
     dialog { 
         width: 420px;
         height: 720px;
@@ -282,40 +331,24 @@ footer, .rodaPeModal {
         font-size: 16px;
     }
     .temaCampanhaCorpo{
-        height: 40px;
+        height: 500px;
         overflow-y: auto;
         overflow-x: hidden;
     
     }
 }
 
-/* iPAD MINI (744px - 767px) */
-@media (min-width: 744px) and (max-width: 766px) {
-   
-    dialog { 
-        width: 460px;
-        height: 780px;
-        padding: 28px;
-    }
-    .temaCampanhaCorpo{
-        height: 40px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    
-    }
-    
-}
 
 /* TABLETS MAIORES (768px - 1024px) */
 
-@media (min-width: 767px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     body{
         background-color: black;
     }
     
     dialog { 
-        width: 600px;
-        height: 820px;
+        width: 65%;
+        height: 700px;
         padding: 30px;
     }
 
@@ -328,7 +361,7 @@ footer, .rodaPeModal {
         width: 100%;
     }
     .temaCampanhaCorpo{
-        height: 40px;
+        height: 450px;
         overflow-y: auto;
         overflow-x: hidden;
     
@@ -338,6 +371,7 @@ footer, .rodaPeModal {
 
 /* DESKTOPS PEQUENOS (1024px - 1440px) */
 @media (min-width: 1024px) and (max-width: 1440px) {
+
     dialog { 
         width: 800px;
         height: 550px;
@@ -382,6 +416,10 @@ footer, .rodaPeModal {
     .ladoDireito{
         padding-right: 10px;
     }
+
+
+
+    
     
 
     .ladoEsquerdo, .ladoDireito, .cadastroEventoTema, .cadastroEventoDescricao {
@@ -414,7 +452,6 @@ footer, .rodaPeModal {
         
 
     }
-    
 
     .UploadBox{
         height: 250px ;
@@ -462,6 +499,7 @@ footer, .rodaPeModal {
     .buttonConcluir, .buttonrodaPe, .buttonrodaPeModal {
         border-radius: 10px;
         border: none;
+        
         margin-top: 90px;
         width: 200px;
         height: 50px;   
@@ -575,10 +613,13 @@ footer, .rodaPeModal {
         margin-bottom: 8px;
     }
 
+   
+
 }
 
 /* DESKTOPS GRANDES (1440px +) */
 @media (min-width: 1440px) {
+
     dialog { 
         width: 1026px;
         height: 641px;
@@ -683,6 +724,7 @@ footer, .rodaPeModal {
         position: relative;
         justify-content: end;
         margin-top: 50px;
+        
         
     
     }
@@ -813,6 +855,10 @@ footer, .rodaPeModal {
         background-color: #fff;
         cursor: pointer;
         width: 160px; /* Deixa o input mais largo */
+    }
+
+    .produtoDivFormBotao{
+        margin-right: -20px;
     }
 
 }

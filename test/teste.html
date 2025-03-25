@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .FormImagem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .UploadBox {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .UploadBox img {
+            width: 50px;
+            height: 50px;
+        }
+    
+        .UploadBox .preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    
+        .UploadBox small, .UploadBox hr {
+            display: block;
+        }
+    
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="FormImagem">
+        <label>Faça o upload da imagem do produto:</label>
+        <label for="imagem" class="UploadBox">
+            <img src="./uploadIcon.png" alt="uploadIcon" id="uploadIcon">
+            <hr>
+            <small>Arraste e solte o arquivo de imagem aqui</small>
+            <small>para realizar upload</small>
+            <hr>
+            <small>JPEG - PNG - WEBP</small>
+        </label>
+        <input type="file" id="imagem" accept="image/jpeg, image/png, image/webp">
+        
+        <footer class="produtoFormBotao">
+            <div>
+                <button type="button" class="buttonConcluir">Concluído</button>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("imagem").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const uploadBox = document.querySelector(".UploadBox");
+                    uploadBox.innerHTML = `<img src="${e.target.result}" class="preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

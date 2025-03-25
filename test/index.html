@@ -57,17 +57,19 @@
                 <div class="FormImagem">
                     <label>Faça o upload da imagem do produto:</label>
                     <label for="imagem" class="UploadBox">
-                        <img src="./uploadIcon.png" alt="uploadIcon">
-                        <hr>
-                        <small>Arraste e solte o arquivo de imagem aqui</small> 
-                        <small>para realizar upload</small>
-                        <hr>
-                        <small>JPEG - PNG - WEBP</small>
+                        <div class="default-content">
+                            <img src="./uploadIcon.png" alt="uploadIcon">
+                            <hr>
+                            <small>Arraste e solte o arquivo de imagem aqui</small>
+                            <small>para realizar upload</small>
+                            <hr>
+                            <small>JPEG - PNG - WEBP</small>
+                        </div>
                     </label>
-                    <input type="file" id="imagem" accept="image/jpeg, image/png,image/gif">
+                    <input type="file" id="imagem" accept="image/jpeg, image/png, image/webp">
                     <footer class="produtoFormBotao">
 
-                        <div>
+                        <div class="produtoDivFormBotao">
                             <!-- Botão Concluir redireciona para o segundo pop up -->
                             <button type="button" class="buttonConcluir">Concluido</button>
                         </div>
