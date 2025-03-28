@@ -119,13 +119,6 @@ modalSegundo.addEventListener("change", function(event) {
     }
 });
 
-// Verifica mudanças no campo de texto e controla checkboxes
-// checkboxlist.addEventListener("input", function() {
-//     let checkboxes = modalSegundo.querySelectorAll("input[type='checkbox']");
-//     if (checkboxlist.value.trim() !== "") {
-//         checkboxes.forEach(cb => cb.checked = false);
-//     }
-// });
 
 document.getElementById("imagem").addEventListener("change", function(event) {
     console.log("wdadw")
