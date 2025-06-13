@@ -11,37 +11,32 @@ class CustomUser(AbstractUser):
         ('vendedor', 'Vendedor'),
         ('administrador', 'Administrador'),
     ]
-
+    first_name = models.CharField(max_length=150, blank=True, null=True)  # <- adicione isto
+    last_name = models.CharField(max_length=150, blank=True, null=True)   # <- adicione isto
     email = models.EmailField(unique=True)
-    cpf = models.CharField(max_length=11, unique=True)
     tipo = models.CharField(max_length=20, choices=ROLE_CHOICES, default='cliente')
     saldo = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-
     is_adm = models.BooleanField(default=False)  
-    first_name = models.CharField(max_length=150, blank=True, null=True)
-    last_name = models.CharField(max_length=150, blank=True, null=True)
+    img =  models.ImageField(upload_to='produtos/', null=True, blank=True)
+
+    # campo exclusivo para vendedores
+    loja = models.TextField(max_length=350, blank=True, null=True, verbose_name="loja")
 
     def __str__(self):
-        return f"{self.first_name} - {self.email} ({self.tipo})"
+        return f"{self.email} ({self.tipo})"
 
 # Produto
 class Produto(models.Model):
-    TIPO_CHOICES = [
-        ("Perecivel", "Perecível"),
-        ("Congelado", "Congelado"),
-        ("Nao_Perecivel", "Não Perecível"),
-    ]
-
-    nome = models.CharField(max_length=50)
-    marca = models.CharField(max_length=50)
-    qtd_prod = models.PositiveIntegerField()
+    descricao = models.TextField(max_length=350, blank=True, verbose_name="Descrição")
     valor = models.DecimalField(max_digits=8, decimal_places=2)
-    tipo_prod = models.CharField(max_length=16, choices=TIPO_CHOICES)
-    descricao_pro = models.TextField(max_length=350, blank=True)
-    img_prod = models.CharField(max_length=150)
+    validade = models.DateField(verbose_name="Validade", blank=True, null=True)
+    quantidade = models.PositiveIntegerField(verbose_name="Quantidade", default=0)
+    tipo_produto = models.CharField(max_length=100, verbose_name="Tipo de Embalagem", default='Outro')
+    classe = models.CharField(max_length=100, verbose_name="Classificação",  default="Alimento")
+    imagem = models.ImageField(upload_to='produtos/', blank=True, null=True, verbose_name="Imagem do Produto")
 
     def __str__(self):
-        return self.nome
+        return self.descricao
 
 # Carrinho
 class Carrinho(models.Model):

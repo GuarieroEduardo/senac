@@ -16,12 +16,17 @@ urlpatterns = [
     # Rotas automáticas dos ViewSets
     path('api/', include(router.urls)),
 
+    # Rota para tela inicial de login
+    path('', tela_inicial, name="inicio"),
+
     # APIView personalizada para usuários com lógica extra
     path('api/user/', User.as_view(), name='usuarios'),
     path('api/user/<int:id>/', User.as_view(), name='usuarioDetalhe'),
 
     # vai para o login
-    path('', tela_login, name="login"),
+    path('', tela_login, name="inicio"),
+
+    path('login/', tela_login, name="login"),
     path('api/login/', LoginView.as_view(), name='api_login'),
 
     path('HomeUser/', test2, name="home_user"),
@@ -31,12 +36,15 @@ urlpatterns = [
 
     path('api/UsuarioLogado/', GetDadosUsuarioLogado.as_view(), name='dados_usuario_logado'),
 
+    #Web e API Views ADMINISTRADOR
+    path('estoqueadm/',estoque_adm, name="estoque_adm"),
+
     #Carrinho
 
-    path('CarrinhoVend/',carrinho_vend, name="carrinho_vend")
+    path('CarrinhoVend/',carrinho_vend, name="carrinho_vend"),
+    path('CadastroCliente/', cadastroCliente, name="cadastro_cliente"),
 
 
 
 
 ]
-
