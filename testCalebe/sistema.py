@@ -1,3 +1,5 @@
+from fpdf import FPDF
+
 class Vendedor:
     def __init__(self, nome):
         self.nome = nome
@@ -15,6 +17,10 @@ class Venda:
         self.vendedor = vendedor
         self.produto = produto
         self.comissao = produto.preco * (comissao / 100.0)  # Erro 2: calcular porcentagem corretamente
+
+
+class PDF():
+
 
 
 class SistemaComissao:
@@ -96,6 +102,10 @@ class SistemaComissao:
                     total += venda.comissao  # Erro 10: corrigido para somar a comissão, não o objeto Produto
         print(f"Total de comissão: R$ {total:.2f}")
 
+    def exportar_relatorio(self):
+        pdf = PDF()
+        pdf.gerar_relatorio(self.vendas)
+
     def menu(self):
         sair = False
         while not sair:
@@ -123,6 +133,9 @@ class SistemaComissao:
                 self.relatorio_vendas()
             elif opcao == "6":
                 self.relatorio_comissao()
+            elif opcao == "7":  
+                self.exportar_relatorio()
+
             elif opcao == "0":
                 sair = True
             else:
