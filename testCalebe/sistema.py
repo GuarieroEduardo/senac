@@ -1,4 +1,5 @@
 from fpdf import FPDF
+import os
 
 class Vendedor:
     def __init__(self, nome):
@@ -19,9 +20,16 @@ class Venda:
         self.comissao = produto.preco * (comissao / 100.0)  # Erro 2: calcular porcentagem corretamente
 
 
-class PDF():
+class PDF(FPDF):
+    def header(self):
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, "Título do Documento", align="C", ln=True)
 
-
+    def footer(self):
+        self.set_y(-15)
+        self.set_font("Arial", "I", 8)
+        self.cell(0, 10, f"Página {self.page_no()}", align="C")
+        
 
 class SistemaComissao:
     def __init__(self):
@@ -102,9 +110,28 @@ class SistemaComissao:
                     total += venda.comissao  # Erro 10: corrigido para somar a comissão, não o objeto Produto
         print(f"Total de comissão: R$ {total:.2f}")
 
+        
     def exportar_relatorio(self):
+        if not self.vendas:
+            print("Nenhuma venda para exportar.")
+            return
+        
         pdf = PDF()
-        pdf.gerar_relatorio(self.vendas)
+        pdf.add_page()
+        pdf.set_font("Arial", size=12)
+
+        for venda in self.vendas:
+            texto = f"{venda.vendedor.nome} vendeu {venda.produto.nome} por R$ {venda.produto.preco:.2f} e recebeu comissão de R$ {venda.comissao:.2f}"
+            pdf.multi_cell(0, 10, texto.encode('latin-1', 'replace').decode('latin-1'))
+            pdf.ln(5)
+
+        # Salvar no mesmo diretório do script
+        pasta_script = os.path.dirname(os.path.abspath(__file__))
+        caminho_pdf = os.path.join(pasta_script, "relatorio.pdf")
+        pdf.output(caminho_pdf)
+        print(f"Relatório exportado para '{caminho_pdf}'.")
+            
+        
 
     def menu(self):
         sair = False
@@ -116,6 +143,7 @@ class SistemaComissao:
             print("4 - Registrar Venda")
             print("5 - Relatório de Vendas")
             print("6 - Relatório de Comissão por Vendedor")
+            print("7 - Exportar Relatório")
             print("0 - Sair")
 
             opcao = input("Escolha uma opção: ")
